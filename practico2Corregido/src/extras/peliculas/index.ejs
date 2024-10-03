@@ -1,0 +1,55 @@
+<%- include('../../components/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3>Lista de Películas</h3>
+                        <div>
+                          <a class="btn btn-primary" href="/peliculas/crear">Nueva Película</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Sinopsis</th>
+                                    <th>Fecha de Lanzamiento</th>
+                                    <th>Calificación</th>
+                                    <th>Trailer</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% peliculas.forEach(pelicula => { %>
+                                    <tr>
+                                        <td><%= pelicula.id %></td>
+                                        <td><%= pelicula.nombre %></td>
+                                        <td><%= pelicula.sinopsis.substring(0, 100) %>...</td>
+                                        <td><%= new Date(pelicula.fecha_lanzamiento).toLocaleDateString() %></td>
+                                        <td><%= pelicula.calificacion_rotten_tomatoes %>%</td>
+                                        <td>
+                                            <a href="<%= pelicula.trailer_url %>" target="_blank" class="btn btn-secondary">Ver Trailer</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary" href="/admin/peliculas/<%= pelicula.id %>/edit">Editar</a>
+                                            <form method="post" action="/admin/peliculas/<%= pelicula.id %>/delete" style="display:inline;" onsubmit="return confirm('Está seguro que desea eliminar?')">
+                                                <input class="btn btn-danger" type="submit" value="Eliminar">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../../components/footer.ejs') %>

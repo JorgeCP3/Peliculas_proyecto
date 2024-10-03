@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= reparto.nombre %> <%= reparto.apellido %></title>
+</head>
+<body>
+    <h1><%= reparto.nombre %> <%= reparto.apellido %></h1>
+    <h2>Películas</h2>
+    <ul>
+        <% reparto.peliculas.forEach(pelicula => { %>
+            <li><a href="/peliculas/<%= pelicula.id %>"><%= pelicula.nombre %></a></li>
+        <% }); %>
+    </ul>
+    <a href="/reparto">Volver a la lista</a>
+</body>
+</html>

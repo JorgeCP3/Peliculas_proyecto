@@ -1,0 +1,20 @@
+<%- include('../../components/header.ejs') %>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Lista de Reparto</h1>
+  <div class="row">
+    <% reparto.forEach(integrante => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img src="/images/imgReparto/<%= integrante.id %>.jpg" class="card-img-top" alt="<%= integrante.nombre %> <%= integrante.apellido %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= integrante.nombre %> <%= integrante.apellido %></h5>
+            <a href="/reparto/<%= integrante.id %>" class="btn btn-primary">Ver Detalles</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('../../components/footer.ejs') %>

@@ -1,0 +1,30 @@
+<%- include('../../components/header.ejs') %>
+
+<div class="container mt-5">
+    <h1 class="text-center">Añadir Nueva Película</h1>
+    <form action="/peliculas" method="POST">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="sinopsis" class="form-label">Sinopsis</label>
+            <textarea class="form-control" id="sinopsis" name="sinopsis" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="fecha_lanzamiento" class="form-label">Fecha de Lanzamiento</label>
+            <input type="date" class="form-control" id="fecha_lanzamiento" name="fecha_lanzamiento" required>
+        </div>
+        <div class="mb-3">
+            <label for="calificacion_rotten_tomatoes" class="form-label">Calificación (Rotten Tomatoes)</label>
+            <input type="text" class="form-control" id="calificacion_rotten_tomatoes" name="calificacion_rotten_tomatoes" required>
+        </div>
+        <div class="mb-3">
+            <label for="trailer_url" class="form-label">URL del Tráiler</label>
+            <input type="url" class="form-control" id="trailer_url" name="trailer_url" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Añadir Película</button>
+    </form>
+</div>
+
+<%- include('../../components/footer.ejs') %>
